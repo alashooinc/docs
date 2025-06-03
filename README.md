@@ -1,32 +1,78 @@
-# Mintlify Starter Kit
+### CNHO Docs Documentation Home Page
 
-Click on `Use this template` to copy the Mintlify starter kit. The starter kit contains examples including
+> Welcome to the official OffshoreDAO Docs. Here you will find everything you need to know about CNHO, airdrop pickup, technical details and community involvement.
 
-- Guide pages
-- Navigation
-- Customizations
-- API Reference pages
-- Use of popular components
+---
 
-### Development
+### 💡 What is CNHO?
 
-Install the [Mintlify CLI](https://www.npmjs.com/package/mintlify) to preview the documentation changes locally. To install, use the following command
+CNHO is a decentralized offshore RMB stablecoin, built on the Cosmos ecosystem, which realizes cross-border payments, asset stability, and de-trusted financial operations through smart contracts.
+
+---
+
+### 🪂 How to get CNHO?
+
+Currently, CNHO can be acquired in the following ways:
+
+- Participate in the Airdrop Program (claim through mailbox verification)
+- Trading on the DEX
+- Community Contributions and Activity Rewards
+
+👉 Participate in the Airdrop now\!
+
+---
+
+### 🦊 How do I use CNHO?
+
+1. Install a wallet using [MetaMask](https://metamask.io/).
+2. Switch to Ethereum or a supported chain (e.g. Base).
+3. Add a CNHO contract address:
 
 ```
-npm i -g mintlify
+CopyEdit
+0xeF915eB013c7333bE33bE38519d61299FB3FBe07
 ```
 
-Run the following command at the root of your documentation (where docs.json is)
+1. Go to DEX (e.g. Uniswap) to trade or Claim CNHO.
 
-```
-mintlify dev
-```
+---
 
-### Publishing Changes
+### 🔐 Technology and Security
 
-Install our Github App to auto propagate changes from your repo to your deployment. Changes will be deployed to production automatically after pushing to the default branch. Find the link to install on your dashboard. 
+- Smart contracts are internally audited and subject to multiple tests.
+- All airdrop eligibility is verified using the Merkle Tree.
+- Claims are made by the user without the need for a trusted intermediary.
 
-#### Troubleshooting
+---
 
-- Mintlify dev isn't running - Run `mintlify install` it'll re-install dependencies.
-- Page loads as a 404 - Make sure you are running in a folder with `docs.json`
+### 🛠 Contract Information
+
+- Contract address: `0xeF915eB013c7333bE33bE38519d61299FB3FBe07`
+- Supporting Links: Ethereum / Base
+- View Contract: Etherscan
+
+---
+
+### 📬 Contact & Community
+
+- Official Website: [cnho.io](http://cnho.io)
+- Twitter: [twitter.com/cnho_io](https://twitter.com/cnho_io)
+- Telegram Community: Click me to join
+- Discord: [discord.gg/bPmhYJc5rU](http://discord.gg/bPmhYJc5rU)
+- Email: [pr@cnho.io](mailto:pr@cnho.io)
+
+---
+
+### ✅ Frequently Asked Questions FAQ
+
+**Q: Is CNHO a stable currency? What is it pegged to?**
+
+A: Yes, CNHO is a decentralized stablecoin pegged to the offshore Renminbi (CNH).
+
+**Q: How do you ensure the stability of CNHO?**
+
+A: CNHO uses chained contracts, reserve models and community governance to maintain price stability and gradually promote real-world asset matching.
+
+**Q: I didn't pass the airdrop verification, how can I get it?**
+
+A: You can buy it through DEX, or stay tuned for future airdrops and missions.
