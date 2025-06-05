@@ -28,8 +28,8 @@
               "essentials/MiningRewards",
               "essentials/ReferralProgram",
               "essentials/MaintenanceGuidelines",
-              "essentials/settings",
-              "essentials/reusable-snippets"
+              "essentials/NodeDeployment",
+              "essentials/settings"
             ]
           }
         ]

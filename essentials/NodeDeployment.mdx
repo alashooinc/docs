@@ -1,0 +1,107 @@
+---
+title: "Node Deployment"
+description: "Executable File Version"
+icon: "recycle"
+---
+
+### 1. Basic Information
+
+- **Chain ID**: `cnho_stables-1`
+- **Data Directory**: `~/.cnho`
+- **Executable Name**: `cnho_stables`
+- **Genesis File**: `Genesis JSON`
+- **Seeds**:\
+  `c5afa68170530e128018e12cd463d15823e34ce9@seeds.cnho.io:26656`
+
+---
+
+### 2. Download Executable Binaries
+
+**1. Baidu Cloud:**
+
+- [CentOS 7\+](https://pan.baidu.com/s/1X26In0sNUbBG1amppijAHw?pwd=jb22)
+- [Windows 10/11](https://pan.baidu.com/s/1DMWUEgYCqGzsh8-kab3Xrg?pwd=7xcq)
+- [Mac OS X](https://pan.baidu.com/s/1raKc3s7TgSMLpGmmnErurw?pwd=fg24)
+
+**2. Official Website:**
+
+- [CentOS 7\+](https://cnho.io/resource/ChainCNHO/cnho_stables1.0.0.bin)
+- [Windows 10/11](https://cnho.io/resource/ChainCNHO/cnho_stables1.0.0.exe)
+- [Mac OS X](https://cnho.io/resource/ChainCNHO/cnho_stables_mac1.0.0.bin)
+
+---
+
+### 3. Deployment Steps
+
+**Step 1: Initialize Node**
+
+```bash
+cnho_stables init your-node-name --chain-id cnho_stables-1 --home=. 
+```
+
+**Step 2: Download Genesis File**
+
+```bash
+curl -L https://raw.githubusercontent.com/alashooinc/ChainCNHO/master/mainnet/genesis.json > ~/.cnho/config/genesis.json
+```
+
+**Step 3: Configure Seeds**
+
+- Open `~/.cnho/config/config.toml`, find the `seeds` setting, and replace it with:
+
+```bash
+seeds = "c5afa68170530e128018e12cd463d15823e34ce9@seeds.cnho.io:26656"
+```
+
+**Step 4: Set Chain ID in client.toml**
+
+- Open `~/.cnho/config/client.toml`, update:
+
+```
+chain-id = "cnho_stables-1" 
+```
+
+**Step 5: Enable API, RPC, and Swagger**
+
+- In `~/.cnho/config/app.toml`, set the following values to `true`:
+
+```bash
+api = true swagger = true enable = true  # under the RPC section 
+```
+
+- Ensure the ports are correctly set (default: RPC `26657`, API `1317`).
+
+**Step 6: Start Node**
+
+```bash
+cnho_stables start --home=. 
+```
+
+**Step 7: Check Synchronization Status**
+
+```bash
+curl -s localhost:26657/status | jq .result.sync_info 
+```
+
+### 4. Accessing API, RPC, and Swagger Services
+
+**1. Access RPC:**\
+ Use `curl` or any HTTP client:
+
+```bash
+curl -s localhost:26657/status 
+```
+
+**2. Access API:**\
+ If API is enabled, access via browser or HTTP client (default port `1317`):
+
+```bash
+curl -s localhost:1317 
+```
+
+**3. Access Swagger UI:**\
+ If Swagger is enabled, visit:
+
+```bash
+http://localhost:1317
+```
