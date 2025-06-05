@@ -1,88 +1,75 @@
 ---
-title: 'Markdown Syntax'
-description: 'Text, title, and styling in standard markdown'
-icon: 'text-size'
+title: "Validators Benefits"
+description: "Triple benefit for validators"
+icon: "text-size"
 ---
 
-## Titles
+The CNHO Stables mainnet is now live\! Node stakers can earn rewards from the following three main sources:
 
-Best used for section headers.
+---
 
-```md
-## Titles
-```
+### 1. **Network Transaction Fee Rewards (CNHO)**
 
-### Subtitles
+Users pay a small amount of CNHO as a transaction fee when transferring funds or interacting on the CNHO Stables network. These fees are distributed to validators and their delegators who participate in the mainnet consensus. The distribution rules are as follows:
 
-Best use to subsection headers.
+- **Validator Commission**: Each validator can set their own commission rate (e.g., 10%, 20%), which they receive as a priority.
+- **Delegator Share**: The remaining fees are distributed proportionally based on the amount of CNHO staked by each delegator.
 
-```md
-### Subtitles
-```
+**Terminology**:
 
-<Tip>
+- **Validator**: A node operator that runs a full node, produces and validates blocks, and is responsible for maintaining uptime and security.
+- **Delegator**: A CNHO holder who stakes their tokens to a validator, helping increase the validator’s voting power in exchange for a share of the rewards.
 
-Each **title** and **subtitle** creates an anchor and also shows up on the table of contents on the right.
+**Example Calculation**:\
+Assume the validator receives 100 CNHO in transaction fees in one day:
 
-</Tip>
+- Validator commission is 10% → Validator receives 10 CNHO
+- Remaining 90 CNHO is distributed among delegators
+- If you staked 5% of the total delegation → You receive: 90 × 5% = **4.5 CNHO**
 
-## Text Formatting
+---
 
-We support most markdown formatting. Simply add `**`, `_`, or `~` around text to format it.
+### 2. **CNHO Foundation Subsidy**
 
-| Style         | How to write it   | Result          |
-| ------------- | ----------------- | --------------- |
-| Bold          | `**bold**`        | **bold**        |
-| Italic        | `_italic_`        | _italic_        |
-| Strikethrough | `~strikethrough~` | ~strikethrough~ |
+To support node operators and encourage active participation in the early phase of the network, the CNHO Foundation provides daily operational subsidies to help cover costs:
 
-You can combine these. For example, write `**_bold and italic_**` to get **_bold and italic_** text.
+- **Subsidy Range**: Approximately 30–100 CNHO per day
+- **Distribution Criteria**: Based on uptime and activity of the validator
+- **Announcement Method**: Rules and eligible validators are announced periodically in the community
 
-You need to use HTML to write superscript and subscript text. That is, add `<sup>` or `<sub>` around your text.
+These subsidies serve as an interim reward before transaction fee revenues scale up.
 
-| Text Size   | How to write it          | Result                 |
-| ----------- | ------------------------ | ---------------------- |
-| Superscript | `<sup>superscript</sup>` | <sup>superscript</sup> |
-| Subscript   | `<sub>subscript</sub>`   | <sub>subscript</sub>   |
+**Example Calculation**:\
+Assume your validator receives a 50 CNHO subsidy today:
 
-## Linking to Pages
+- The full subsidy goes to the validator and is **not** shared with delegators → You receive: **50 CNHO**
 
-You can add a link by wrapping text in `[]()`. You would write `[link to google](https://google.com)` to [link to google](https://google.com).
+---
 
-Links to pages in your docs need to be root-relative. Basically, you should include the entire folder path. For example, `[link to text](/writing-content/text)` links to the page "Text" in our components section.
+### 🪙 3. **\$OFO Governance Token Airdrop Rewards**
 
-Relative links like `[link to text](../text)` will open slower because we cannot optimize them as easily.
+In addition to CNHO rewards, validators and their delegators are also eligible to receive \$OFO, the governance token, through an ongoing airdrop mechanism:
 
-## Blockquotes
+- A small amount of \$OFO is released with every block
+- The rewards are distributed to block-producing validators and their delegators based on stake ratio
+- \$OFO is used for future governance, proposal voting, and other community engagement features
 
-### Singleline
+**Preliminary Plan**:\
+The \$OFO airdrop is expected to begin at **block height 5,000,000**. Details will be announced separately by the Foundation.
 
-To create a blockquote, add a `>` in front of a paragraph.
+**Example Calculation**:\
+Assume your delegated validator earns 200 OFO today:
 
-> Dorothy followed her through many of the beautiful rooms in her castle.
+- Validator commission is 20% → Validator receives: 200 × 20% = 40 OFO
+- Remaining 160 OFO is distributed to delegators
+- If your stake accounts for 2% of the total delegation → You receive: 160 × 2% = **3.2 OFO**
 
-```md
-> Dorothy followed her through many of the beautiful rooms in her castle.
-```
+---
 
-### Multiline
+### ✅ Summary: Triple Rewards, One Participation
 
-> Dorothy followed her through many of the beautiful rooms in her castle.
->
-> The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
-
-```md
-> Dorothy followed her through many of the beautiful rooms in her castle.
->
-> The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
-```
-
-### LaTeX
-
-Mintlify supports [LaTeX](https://www.latex-project.org) through the Latex component.
-
-<Latex>8 x (vk x H1 - H2) = (0,1)</Latex>
-
-```md
-<Latex>8 x (vk x H1 - H2) = (0,1)</Latex>
-```
+| **Reward Source**     | **Token** | **Recipients**          | **Notes**                            | **Example**                 |
+| :-------------------- | :-------- | :---------------------- | :----------------------------------- | :-------------------------- |
+| Network Fees          | CNHO      | Validators & Delegators | Varies with network activity         | Delegate 5% → Earn 4.5 CNHO |
+| Foundation Subsidy    | CNHO      | Validators              | Early-stage support                  | Validator earns 50 CNHO     |
+| Mining Airdrop Reward | OFO       | Validators & Delegators | Governance token, gradually released | Delegate 2% → Earn 3.2 OFO  |
