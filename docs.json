@@ -58,19 +58,19 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
+          "anchor": "Whitepaper",
+          "href": "https://cnho.io/operate/whitepaper.html",
           "icon": "book-open-cover"
         },
         {
-          "anchor": "Community",
-          "href": "https://mintlify.com/community",
-          "icon": "slack"
+          "anchor": "OffshoreDAO",
+          "href": "https://snapshot.org/#/younghwang.eth",
+          "icon": "snapshot"
         },
         {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "Transparency",
+          "href": "https://cnho.io/operate/transparency.html",
+          "icon": "transparency"
         }
       ]
     }
