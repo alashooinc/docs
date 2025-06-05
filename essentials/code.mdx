@@ -1,37 +1,97 @@
 ---
-title: 'Code Blocks'
-description: 'Display inline code and code blocks'
-icon: 'code'
+title: "CNHO Stables Mining Rewards Mechanism"
+icon: "code"
+description: "Earn $OFO on Ethereum by blocks."
 ---
 
-## Basic
+## **Reward Token: \$OFO (OffshoreDAO Governance Token)**
 
-### Inline Code
+CNHO Stables application chain's block rewards are funded by the \$OFO token on Ethereum. This incentivizes validators and delegators, and supports the security and decentralization of the network.
 
-To denote a `word` or `phrase` as code, enclose it in backticks (`).
+## **Launch Parameters**
 
-```
-To denote a `word` or `phrase` as code, enclose it in backticks (`).
-```
+- Reward Start Height: Begins from block 5,000,000 on the CNHO Stables chain
 
-### Code Block
+- Base Reward: 2 OFO per block
 
-Use [fenced code blocks](https://www.markdownguide.org/extended-syntax/#fenced-code-blocks) by enclosing code in three backticks and follow the leading ticks with the programming language of your snippet to get syntax highlighting. Optionally, you can also write the name of your code after the programming language.
+- Future Adjustment: Block rewards can be adjusted dynamically through DAO proposals
 
-```java HelloWorld.java
-class HelloWorld {
-    public static void main(String[] args) {
-        System.out.println("Hello, World!");
-    }
-}
-```
+## **Reward Distribution Mechanism**
 
-````md
-```java HelloWorld.java
-class HelloWorld {
-    public static void main(String[] args) {
-        System.out.println("Hello, World!");
-    }
-}
-```
-````
+Each block produces 2 OFO, distributed as follows:
+
+**1. Validator Commission Reward:**
+
+- The block proposer (validator) receives a commission based on their set rate
+
+- Example: 10% commission = 0.2 OFO out of 2 OFO
+
+**2. Delegator Rewards:**
+
+- The remaining portion (e.g., 1.8 OFO) is distributed among all delegators under the validator based on their stake proportion
+
+- Formula:
+
+  reward = (delegator stake / total stake) \* distributable OFO
+
+## **Example**
+
+Validator A (commission rate: 10%) has a total stake of 10,000 CNHO
+
+Delegator Alice has staked 1,000 CNHO
+
+Block Reward: 2.00 OFO
+
+Validator Commission: 0.20 OFO
+
+Distributable to Delegators: 1.80 OFO
+
+Alice earns: (1000 / 10000) \* 1.80 = 0.18 OFO
+
+## **Reward Tracking and Calculation**
+
+- All rewards are recorded via on-chain events (block height, validator, distribution)
+
+- An off-chain Indexer periodically scans the chain and calculates cumulative rewards for each address
+
+- Frontend dashboard supports address query, reward overview, and claim history display
+
+## **User-side Reward Metrics**
+
+Displayed on Dashboard after wallet connection:
+
+- Total Earned: Total OFO earned
+
+- Validator Commission: Reward as validator
+
+- Delegator Rewards: Reward as delegator
+
+- Claimed / Unclaimed / Claimable: Breakdown of claimed and pending rewards
+
+## **Claiming Mechanism**
+
+- All rewards are calculated off-chain and updated regularly
+
+- Users can manually claim rewards via the dashboard (using their Ethereum address)
+
+- Claims are verified using a Merkle Tree and signature system
+
+- Actual transfer is executed by an Ethereum smart contract
+
+## **Future Plans**
+
+- ✅ Dashboard for reward tracking: Launched
+
+- ⏳ Claim functionality: In development
+
+- ⏳ Scheduled auto-distribution: Community governance to decide
+
+- ✅ DAO parameter proposals: Enabled for reward rate, validator logic, etc.
+
+## **Design Principles**
+
+- Incentivize validators to produce blocks and attract delegators
+
+- Encourage long-term staking to secure the chain
+
+- Maintain \$OFO on Ethereum as the governance and liquidity hub
