@@ -1,0 +1,94 @@
+---
+title: "Maintenance Guidelines"
+description: "To ensure your validator node operates stably and continuously earns rewards, please pay close attention to the following points:"
+icon: "map"
+---
+
+#### 1. **Node Uptime Stability**
+
+- Your node machine must run 24/7 with minimal interruptions.
+- Daily human intervention is minimal—just check the node status once per day (e.g., in a browser).
+- If your node goes offline, it **must be restarted within 24 hours**.
+- If a validator misses signing blocks for more than **5 minutes**, it will be marked as "missed blocks".
+- Prolonged downtime may result in **slashing penalties** or **automatic jailing**, impacting your rewards.
+
+---
+
+#### 2. **Disable Power Saving & Sleep Modes (Extremely Important)**
+
+To avoid automatic disconnections, **disable the following features** on your system:
+
+- CPU power saving / sleep mode
+- HDD/SSD sleep mode
+- Network adapter power saving mode (especially on laptops)
+
+It’s highly recommended to run your node on a reliable VPS, physical server, or an always-on desktop machine.
+
+---
+
+#### 3. **Auto-Restart and Monitoring**
+
+Set up an auto-restart daemon using `systemd` or `supervisor`.
+
+Suggested monitoring tools:
+
+- **Prometheus \+ Grafana**
+- **Cosmovisor** for automatic upgrades
+- **Alerting** via Telegram bot, email, or Uptime Robot
+
+---
+
+#### 4. **Private Key Security & Backup**
+
+- Securely store `priv_validator_key.json`—this is your validator’s signing key.
+- **Never upload** it to cloud drives, syncing services, or Git repositories.
+- Store multiple encrypted offline backups for safety.
+
+---
+
+#### 5. **Stay Synced with Mainnet**
+
+- Join the official [GitHub](https://github.com/alashooinc/ChainCNHO) or Telegram to stay updated on mainnet upgrades.
+- Failing to upgrade during a hard fork will stop your node from producing blocks.
+- Check sync status with:
+
+  ```bash
+  curl -s localhost:26657/status | jq .result.sync_info 
+  ```
+
+---
+
+#### 6. **Log Monitoring & Error Troubleshooting**
+
+To view logs, use:
+
+```bash
+journalctl -u cnho_stables -f 
+```
+
+- Regularly clean logs to prevent disk overflow.
+- Watch for issues such as `out of gas`, `panic`, `disk full`, etc.
+
+---
+
+#### 7. **Enable API / RPC Access**
+
+Edit `app.toml` and `config.toml` to enable:
+
+```bash
+api = true swagger = true enable = true  # for RPC 
+```
+
+- By default, these services listen on local ports.
+- If exposing externally, ensure proper **firewall and security settings**.
+
+---
+
+#### 8. **Node Restart & Jail Recovery**
+
+- **Do not delete** `priv_validator_state.json` before restarting your node.
+- If your node is jailed due to downtime, you can unjail it manually with:
+
+  ```bash
+  cnho_stables tx slashing unjail --from your-key-name
+  ```
