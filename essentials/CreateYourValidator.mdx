@@ -41,25 +41,27 @@ Send your address to a mainnet distributor or use the faucet to receive CNHO tok
 
 Check your balance:
 
+```bash
+cnho_stables query bank balances <your-address> 
 ```
-bash
-```
-
-CopyEdit
-
-`cnho_stables query bank balances <your-address> `
-
----
 
 ### 4. Create Validator (Staking Node)
 
+```bash
+cnho_stables tx staking create-validator \   
+--amount 1000000ucnho \   
+--pubkey $(cnho_stables tendermint show-validator) \   
+--moniker "<your-node-name>" \   
+--chain-id cnho_stables-1 \   
+--commission-rate "0.10" \   
+--commission-max-rate "0.20" \   
+--commission-max-change-rate "0.01" \   
+--min-self-delegation "1" \   
+--from <your-key-name> \   
+--fees 5000ucnho \   
+--gas auto \   
+--gas-adjustment 1.4 
 ```
-bash
-```
-
-CopyEdit
-
-`cnho_stables tx staking create-validator \   --amount 1000000ucnho \   --pubkey $(cnho_stables tendermint show-validator) \   --moniker "<your-node-name>" \   --chain-id cnho_stables-1 \   --commission-rate "0.10" \   --commission-max-rate "0.20" \   --commission-max-change-rate "0.01" \   --min-self-delegation "1" \   --from <your-key-name> \   --fees 5000ucnho \   --gas auto \   --gas-adjustment 1.4 `
 
 **Parameter explanation:**
 
@@ -77,72 +79,48 @@ CopyEdit
 
 ### 5. Check Validator Status
 
+```bash
+cnho_stables query staking validator $(cnho_stables keys show <your-key-name> -a) 
 ```
-bash
-```
-
-CopyEdit
-
-`cnho_stables query staking validator $(cnho_stables keys show <your-key-name> -a) `
 
 If you see output like below, your validator was successfully created:
 
+```json
+{   "description": {     "moniker": "your-moniker",     ...   },   "status": "BOND_STATUS_BONDED",   ... } 
 ```
-json
-```
-
-CopyEdit
-
-`{   "description": {     "moniker": "your-moniker",     ...   },   "status": "BOND_STATUS_BONDED",   ... } `
-
----
 
 ### 6. Verify Signing Status
 
 Check the latest validator public key:
 
+```bash
+cnho_stables tendermint show-validator
 ```
-bash
-```
-
-CopyEdit
-
-`cnho_stables tendermint show-validator `
 
 Check if you're in the active validator set:
 
 ```
-bash
+cnho_stables query staking validators --limit 1000 | grep <your-moniker>
 ```
-
-CopyEdit
-
-`cnho_stables query staking validators --limit 1000 | grep <your-moniker> `
-
----
 
 ### 7. Post-Creation Operations
 
 ✅ **Edit Validator Info**
 
+```bash
+cnho_stables tx staking edit-validator \   
+--moniker "<new-name>" \   
+--identity "<Keybase ID>" \   
+--website "<website>" \   
+--details "<validator description>" \   
+--chain-id cnho_stables-1 \   
+--from <your-key-name> 
 ```
-bash
-```
-
-CopyEdit
-
-`cnho_stables tx staking edit-validator \   --moniker "<new-name>" \   --identity "<Keybase ID>" \   --website "<website>" \   --details "<validator description>" \   --chain-id cnho_stables-1 \   --from <your-key-name> `
-
----
 
 ### 8. If Node Gets Jailed Due to Downtime
 
 Unjail your validator with:
 
+```bash
+cnho_stables tx slashing unjail --from <your-key-name> --chain-id cnho_stables-1
 ```
-bash
-```
-
-CopyEdit
-
-`cnho_stables tx slashing unjail --from <your-key-name> --chain-id cnho_stables-1`
