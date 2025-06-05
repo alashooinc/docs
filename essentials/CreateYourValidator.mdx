@@ -1,328 +1,148 @@
 ---
 title: "Create Your Validator"
-description: "Mintlify gives you complete control over the look and feel of your documentation using the docs.json file"
+description: "Starting After Sync Completion."
 icon: "gear"
 ---
 
-Every Mintlify site needs a `docs.json` file with the core configuration settings. Learn more about the [properties](#properties) below.
+### 1. Prerequisite Check (Confirm Node Sync)
 
-## Properties
+Before proceeding, make sure your node has fully synced blocks:
 
-<ResponseField name="name" type="string" required>
-  Name of your project. Used for the global title.
+```bash
+curl -s localhost:26657/status | jq .result.sync_info 
+```
 
-  Example: `mintlify`
-</ResponseField>
+Ensure `"catching_up"` is `false`:
 
-<ResponseField name="navigation" type="Navigation[]" required>
-  An array of groups with all the pages within that group
+```json
+{   "catching_up": false,   ... } 
+```
 
-  <Expandable title="Navigation">
-    <ResponseField name="group" type="string">
-      The name of the group.
+### 2. Create Wallet Account _(Skip if already created)_
 
-      Example: `Settings`
-    </ResponseField>
-    <ResponseField name="pages" type="string[]">
-      The relative paths to the markdown files that will serve as pages.
+```bash
+cnho_stables keys add <your-key-name> 
+```
 
-      Example: `["customization", "page"]`
-    </ResponseField>
-  </Expandable>
-</ResponseField>
+> ⚠️ Be sure to back up your **mnemonic phrase** and address.\
+>  It’s recommended to set the `keyring-backend` to `file` or `os` for safety.
 
-<ResponseField name="logo" type="string or object">
-  Path to logo image or object with path to "light" and "dark" mode logo images
+Check your address:
 
-  <Expandable title="Logo">
-    <ResponseField name="light" type="string">
-      Path to the logo in light mode
-    </ResponseField>
-    <ResponseField name="dark" type="string">
-      Path to the logo in dark mode
-    </ResponseField>
-    <ResponseField name="href" type="string" default="/">
-      Where clicking on the logo links you to
-    </ResponseField>
-  </Expandable>
-</ResponseField>
+```bash
+cnho_stables keys show <your-key-name> -a 
+```
 
-<ResponseField name="favicon" type="string">
-  Path to the favicon image
-</ResponseField>
+---
 
-<ResponseField name="colors" type="Colors">
-  Hex color codes for your global theme
+### 3. Get CNHO Tokens and Fund Your Wallet
 
-  <Expandable title="Colors">
-    <ResponseField name="primary" type="string" required>
-      The primary color. Used for most often for highlighted content, section
-      headers, accents, in light mode
-    </ResponseField>
-    <ResponseField name="light" type="string">
-      The primary color for dark mode. Used for most often for highlighted
-      content, section headers, accents, in dark mode
-    </ResponseField>
-    <ResponseField name="dark" type="string">
-      The primary color for important buttons
-    </ResponseField>
-    <ResponseField name="background" type="object">
-      The color of the background in both light and dark mode
+Send your address to a mainnet distributor or use the faucet to receive CNHO tokens.
 
-      <Expandable title="Object">
-        <ResponseField name="light" type="string" required>
-          The hex color code of the background in light mode
-        </ResponseField>
-        <ResponseField name="dark" type="string" required>
-          The hex color code of the background in dark mode
-        </ResponseField>
-      </Expandable>
-    </ResponseField>
-  </Expandable>
-</ResponseField>
+Check your balance:
 
-<ResponseField name="topbarLinks" type="TopbarLink[]">
-  Array of `name`s and `url`s of links you want to include in the topbar
+```
+bash
+```
 
-  <Expandable title="TopbarLink">
-    <ResponseField name="name" type="string">
-      The name of the button.
+CopyEdit
 
-      Example: `Contact us`
-    </ResponseField>
-    <ResponseField name="url" type="string">
-      The url once you click on the button. Example: `https://mintlify.com/docs`
-    </ResponseField>
-  </Expandable>
-</ResponseField>
+`cnho_stables query bank balances <your-address> `
 
-<ResponseField name="topbarCtaButton" type="Call to Action">
-  <Expandable title="Topbar Call to Action">
-    <ResponseField name="type" type={'"link" or "github"'} default="link">
-      Link shows a button. GitHub shows the repo information at the url provided including the number of GitHub stars.
-    </ResponseField>
-    <ResponseField name="url" type="string">
-      If `link`: What the button links to.
+---
 
-      If `github`: Link to the repository to load GitHub information from.
-    </ResponseField>
-    <ResponseField name="name" type="string">
-      Text inside the button. Only required if `type` is a `link`.
-    </ResponseField>
-  </Expandable>
-</ResponseField>
+### 4. Create Validator (Staking Node)
 
-<ResponseField name="versions" type="string[]">
-  Array of version names. Only use this if you want to show different versions
-  of docs with a dropdown in the navigation bar.
-</ResponseField>
+```
+bash
+```
 
-<ResponseField name="anchors" type="Anchor[]">
-  An array of the anchors, includes the `icon`, `color`, and `url`.
+CopyEdit
 
-  <Expandable title="Anchor">
-    <ResponseField name="icon" type="string">
-      The [Font Awesome](https://fontawesome.com/search?q=heart) icon used to feature the anchor.
+`cnho_stables tx staking create-validator \   --amount 1000000ucnho \   --pubkey $(cnho_stables tendermint show-validator) \   --moniker "<your-node-name>" \   --chain-id cnho_stables-1 \   --commission-rate "0.10" \   --commission-max-rate "0.20" \   --commission-max-change-rate "0.01" \   --min-self-delegation "1" \   --from <your-key-name> \   --fees 5000ucnho \   --gas auto \   --gas-adjustment 1.4 `
 
-      Example: `comments`
-    </ResponseField>
-    <ResponseField name="name" type="string">
-      The name of the anchor label.
+**Parameter explanation:**
 
-      Example: `Community`
-    </ResponseField>
-    <ResponseField name="url" type="string">
-      The start of the URL that marks what pages go in the anchor. Generally, this is the name of the folder you put your pages in.
-    </ResponseField>
-    <ResponseField name="color" type="string">
-      The hex color of the anchor icon background. Can also be a gradient if you pass an object with the properties `from` and `to` that are each a hex color.
-    </ResponseField>
-    <ResponseField name="version" type="string">
-      Used if you want to hide an anchor until the correct docs version is selected.
-    </ResponseField>
-    <ResponseField name="isDefaultHidden" type="boolean" default="false">
-      Pass `true` if you want to hide the anchor until you directly link someone to docs inside it.
-    </ResponseField>
-    <ResponseField name="iconType" type="string" default="duotone">
-      One of: "brands", "duotone", "light", "sharp-solid", "solid", or "thin"
-    </ResponseField>
-  </Expandable>
-</ResponseField>
+- `--amount`: Staked amount (unit: `ucnho`, where 1 CNHO = 1,000,000 ucnho)
+- `--pubkey`: Your node’s public key (auto-fetched)
+- `--moniker`: Validator name (shown on block explorer)
+- `--commission-rate`: Initial commission fee (e.g., 10%)
+- `--commission-max-rate`: Maximum commission fee
+- `--commission-max-change-rate`: Max daily rate change
+- `--min-self-delegation`: Minimum self-bonded amount
+- `--fees`: Network transaction fee
+- `--from`: Your wallet name
 
-<ResponseField name="topAnchor" type="Object">
-  Override the default configurations for the top-most anchor.
+---
 
-  <Expandable title="Object">
-    <ResponseField name="name" type="string" default="Documentation">
-      The name of the top-most anchor
-    </ResponseField>
-    <ResponseField name="icon" type="string" default="book-open">
-      Font Awesome icon.
-    </ResponseField>
-    <ResponseField name="iconType" type="string" default="duotone">
-      One of: "brands", "duotone", "light", "sharp-solid", "solid", or "thin"
-    </ResponseField>
-  </Expandable>
-</ResponseField>
+### 5. Check Validator Status
 
-<ResponseField name="tabs" type="Tabs[]">
-  An array of navigational tabs.
+```
+bash
+```
 
-  <Expandable title="Tabs">
-    <ResponseField name="name" type="string">
-      The name of the tab label.
-    </ResponseField>
-    <ResponseField name="url" type="string">
-      The start of the URL that marks what pages go in the tab. Generally, this
-      is the name of the folder you put your pages in.
-    </ResponseField>
-  </Expandable>
-</ResponseField>
+CopyEdit
 
-<ResponseField name="api" type="API">
-  Configuration for API settings. Learn more about API pages at [API Components](/api-playground/demo).
+`cnho_stables query staking validator $(cnho_stables keys show <your-key-name> -a) `
 
-  <Expandable title="API">
-    <ResponseField name="baseUrl" type="string">
-      The base url for all API endpoints. If `baseUrl` is an array, it will enable for multiple base url
-      options that the user can toggle.
-    </ResponseField>
-    <ResponseField name="auth" type="Auth">
-      <Expandable title="Auth">
-        <ResponseField name="method" type='"bearer" | "basic" | "key"'>
-          The authentication strategy used for all API endpoints.
-        </ResponseField>
-        <ResponseField name="name" type="string">
-          The name of the authentication parameter used in the API playground.
+If you see output like below, your validator was successfully created:
 
-          If method is `basic`, the format should be `[usernameName]:[passwordName]`
-        </ResponseField>
-        <ResponseField name="inputPrefix" type="string">
-          The default value that's designed to be a prefix for the authentication input field.
+```
+json
+```
 
-          E.g. If an `inputPrefix` of `AuthKey` would inherit the default input result of the authentication field as `AuthKey`.
-        </ResponseField>
-      </Expandable>
-    </ResponseField>
-    <ResponseField name="playground" type="Playground">
-      Configurations for the API playground
+CopyEdit
 
-      <Expandable title="Playground">
-        <ResponseField name="mode" type='"show" | "simple" | "hide"' default="show">
-          Whether the playground is showing, hidden, or only displaying the endpoint with no added user interactivity `simple`
+`{   "description": {     "moniker": "your-moniker",     ...   },   "status": "BOND_STATUS_BONDED",   ... } `
 
-          Learn more at the [playground guides](/api-playground/demo)
-        </ResponseField>
-      </Expandable>
-    </ResponseField>
-    <ResponseField name="maintainOrder" type="boolean">
-      Enabling this flag ensures that key ordering in OpenAPI pages matches the key ordering defined in the OpenAPI file.
+---
 
-      <Warning>
-        This behavior will soon be enabled by default, at which point this field will be deprecated.
-      </Warning>
-    </ResponseField>
-  </Expandable>
-</ResponseField>
+### 6. Verify Signing Status
 
-<ResponseField name="openapi" type="string | string[]">
-  A string or an array of strings of URL(s) or relative path(s) pointing to your
-  OpenAPI file.
+Check the latest validator public key:
 
-  Examples:
+```
+bash
+```
 
-  <CodeGroup>
+CopyEdit
 
-  ```json Absolute
-  "openapi": "https://example.com/openapi.json"
-  ```
+`cnho_stables tendermint show-validator `
 
-  
-  ```json Relative
-  "openapi": "/openapi.json"
-  ```
+Check if you're in the active validator set:
 
-  
-  ```json Multiple
-  "openapi": ["https://example.com/openapi1.json", "/openapi2.json", "/openapi3.json"]
-  ```
+```
+bash
+```
 
-  </CodeGroup>
-</ResponseField>
+CopyEdit
 
-<ResponseField name="footerSocials" type="FooterSocials">
-  An object of social media accounts where the key:property pair represents the social media platform and the account url.
+`cnho_stables query staking validators --limit 1000 | grep <your-moniker> `
 
-  Example:
+---
 
-  ```json
-  {
-    "x": "https://x.com/mintlify",
-    "website": "https://mintlify.com"
-  }
-  ```
+### 7. Post-Creation Operations
 
-  <Expandable title="FooterSocials">
-    <ResponseField name="[key]" type="string">
-      One of the following values `website`, `facebook`, `x`, `discord`, `slack`, `github`, `linkedin`, `instagram`, `hacker-news`
+✅ **Edit Validator Info**
 
-      Example: `x`
-    </ResponseField>
-    <ResponseField name="property" type="string">
-      The URL to the social platform.
+```
+bash
+```
 
-      Example: `https://x.com/mintlify`
-    </ResponseField>
-  </Expandable>
-</ResponseField>
+CopyEdit
 
-<ResponseField name="feedback" type="Feedback">
-  Configurations to enable feedback buttons
+`cnho_stables tx staking edit-validator \   --moniker "<new-name>" \   --identity "<Keybase ID>" \   --website "<website>" \   --details "<validator description>" \   --chain-id cnho_stables-1 \   --from <your-key-name> `
 
-  <Expandable title="Feedback">
-    <ResponseField name="suggestEdit" type="boolean" default="false">
-      Enables a button to allow users to suggest edits via pull requests
-    </ResponseField>
-    <ResponseField name="raiseIssue" type="boolean" default="false">
-      Enables a button to allow users to raise an issue about the documentation
-    </ResponseField>
-  </Expandable>
-</ResponseField>
+---
 
-<ResponseField name="modeToggle" type="ModeToggle">
-  Customize the dark mode toggle.
+### 8. If Node Gets Jailed Due to Downtime
 
-  <Expandable title="ModeToggle">
-    <ResponseField name="default" type={'"light" or "dark"'}>
-      Set if you always want to show light or dark mode for new users. When not
-      set, we default to the same mode as the user's operating system.
-    </ResponseField>
-    <ResponseField name="isHidden" type="boolean" default="false">
-      Set to true to hide the dark/light mode toggle. You can combine `isHidden` with `default` to force your docs to only use light or dark mode. For example:
+Unjail your validator with:
 
-      <CodeGroup>
+```
+bash
+```
 
-      ```json Only Dark Mode
-      "modeToggle": {
-        "default": "dark",
-        "isHidden": true
-      }
-      ```
+CopyEdit
 
-      
-      ```json Only Light Mode
-      "modeToggle": {
-        "default": "light",
-        "isHidden": true
-      }
-      ```
-
-      </CodeGroup>
-    </ResponseField>
-  </Expandable>
-</ResponseField>
-
-<ResponseField name="backgroundImage" type="string">
-  A background image to be displayed behind every page. See example with
-  [Infisical](https://infisical.com/docs) and [FRPC](https://frpc.io).
-</ResponseField>
+`cnho_stables tx slashing unjail --from <your-key-name> --chain-id cnho_stables-1`

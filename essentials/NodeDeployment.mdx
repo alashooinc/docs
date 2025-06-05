@@ -6,18 +6,14 @@ title: "Node Deployment"
 
 ### 1. Basic Information
 
-### **1. Basic Information**
-
-- **Chain ID**: `cnho_stables-1`
-- **Data Directory**: `~/.cnho`
-- **Executable Name**: `cnho_stables`
-- **Genesis File**: `Genesis JSON`
-- **Seeds**:\
+- Chain ID: `cnho_stables-1`
+- Data Directory: `~/.cnho`
+- Executable Name: `cnho_stables`
+- Genesis File: `Genesis JSON`
+- Seeds:\
   `c5afa68170530e128018e12cd463d15823e34ce9@seeds.cnho.io:26656`
 
 ---
-
-### [**​**](https://docs.cnho.io/essentials/NodeDeployment#2-download-executable-binaries)
 
 **2. Download Executable Binaries**
 
@@ -35,21 +31,15 @@ title: "Node Deployment"
 
 ---
 
-### [**​**](https://docs.cnho.io/essentials/NodeDeployment#3-deployment-steps)
-
 **3. Deployment Steps**
 
 **Step 1: Initialize Node**
-
-Copy
 
 ```bash
 cnho_stables init your-node-name --chain-id cnho_stables-1 --home=.
 ```
 
 **Step 2: Download Genesis File**
-
-Copy
 
 ```bash
 curl -L https://raw.githubusercontent.com/alashooinc/ChainCNHO/master/mainnet/genesis.json > ~/.cnho/config/genesis.json
@@ -59,8 +49,6 @@ curl -L https://raw.githubusercontent.com/alashooinc/ChainCNHO/master/mainnet/ge
 
 - Open `~/.cnho/config/config.toml`, find the `seeds` setting, and replace it with:
 
-Copy
-
 ```bash
 seeds = "c5afa68170530e128018e12cd463d15823e34ce9@seeds.cnho.io:26656"
 ```
@@ -68,8 +56,6 @@ seeds = "c5afa68170530e128018e12cd463d15823e34ce9@seeds.cnho.io:26656"
 **Step 4: Set Chain ID in client.toml**
 
 - Open `~/.cnho/config/client.toml`, update:
-
-Copy
 
 ```bash
 chain-id = "cnho_stables-1"
@@ -79,8 +65,6 @@ chain-id = "cnho_stables-1"
 
 - In `~/.cnho/config/app.toml`, set the following values to `true`:
 
-Copy
-
 ```bash
 api = true swagger = true enable = true  # under the RPC section
 ```
@@ -89,28 +73,20 @@ api = true swagger = true enable = true  # under the RPC section
 
 **Step 6: Start Node**
 
-Copy
-
 ```bash
 cnho_stables start --home=.
 ```
 
 **Step 7: Check Synchronization Status**
 
-Copy
-
 ```bash
 curl -s localhost:26657/status | jq .result.sync_info
 ```
-
-### [**​**](https://docs.cnho.io/essentials/NodeDeployment#4-accessing-api%2C-rpc%2C-and-swagger-services)
 
 **4. Accessing API, RPC, and Swagger Services**
 
 **1. Access RPC:**\
 Use `curl` or any HTTP client:
-
-Copy
 
 ```bash
 curl -s localhost:26657/status
@@ -119,16 +95,12 @@ curl -s localhost:26657/status
 **2. Access API:**\
 If API is enabled, access via browser or HTTP client (default port `1317`):
 
-Copy
-
 ```bash
 curl -s localhost:1317
 ```
 
 **3. Access Swagger UI:**\
 If Swagger is enabled, visit:
-
-Copy
 
 ```bash
 http://localhost:1317
