@@ -11,10 +11,10 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "User Guides",
+        "tab": "Guides",
         "groups": [
           {
-            "group": "Guides",
+            "group": "User Guides",
             "pages": [
               "index",
               "quickstart",
