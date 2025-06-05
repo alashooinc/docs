@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
+  "theme": "maple",
   "name": "CNHO.IO-A Decentralized China Yuan Stablecoin",
   "colors": {
     "primary": "#16A34A",
