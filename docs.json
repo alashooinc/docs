@@ -24,12 +24,12 @@
           {
             "group": "Becoming Validators",
             "pages": [
-              "Validators/markdown",
-              "Validators/code",
-              "Validators/images",
-              "Validators/settings",
-              "Validators/navigation",
-              "Validators/reusable-snippets"
+              "validators/markdown",
+              "validators/code",
+              "validators/images",
+              "validators/settings",
+              "validators/navigation",
+              "validators/reusable-snippets"
             ]
           }
         ]
