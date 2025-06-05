@@ -1,10 +1,12 @@
 ---
-title: "Node Deployment"
-description: "Executable File Version"
+description: "By Executable File "
 icon: "recycle"
+title: "Node Deployment"
 ---
 
 ### 1. Basic Information
+
+### **1. Basic Information**
 
 - **Chain ID**: `cnho_stables-1`
 - **Data Directory**: `~/.cnho`
@@ -15,31 +17,39 @@ icon: "recycle"
 
 ---
 
-### 2. Download Executable Binaries
+### [**​**](https://docs.cnho.io/essentials/NodeDeployment#2-download-executable-binaries)
+
+**2. Download Executable Binaries**
 
 **1. Baidu Cloud:**
 
-- [CentOS 7\+](https://pan.baidu.com/s/1X26In0sNUbBG1amppijAHw?pwd=jb22)
-- [Windows 10/11](https://pan.baidu.com/s/1DMWUEgYCqGzsh8-kab3Xrg?pwd=7xcq)
-- [Mac OS X](https://pan.baidu.com/s/1raKc3s7TgSMLpGmmnErurw?pwd=fg24)
+- [**CentOS 7\+**](https://pan.baidu.com/s/1X26In0sNUbBG1amppijAHw?pwd=jb22)
+- [**Windows 10/11**](https://pan.baidu.com/s/1DMWUEgYCqGzsh8-kab3Xrg?pwd=7xcq)
+- [**Mac OS X**](https://pan.baidu.com/s/1raKc3s7TgSMLpGmmnErurw?pwd=fg24)
 
 **2. Official Website:**
 
-- [CentOS 7\+](https://cnho.io/resource/ChainCNHO/cnho_stables1.0.0.bin)
-- [Windows 10/11](https://cnho.io/resource/ChainCNHO/cnho_stables1.0.0.exe)
-- [Mac OS X](https://cnho.io/resource/ChainCNHO/cnho_stables_mac1.0.0.bin)
+- [**CentOS 7\+**](https://cnho.io/resource/ChainCNHO/cnho_stables1.0.0.bin)
+- [**Windows 10/11**](https://cnho.io/resource/ChainCNHO/cnho_stables1.0.0.exe)
+- [**Mac OS X**](https://cnho.io/resource/ChainCNHO/cnho_stables_mac1.0.0.bin)
 
 ---
 
-### 3. Deployment Steps
+### [**​**](https://docs.cnho.io/essentials/NodeDeployment#3-deployment-steps)
+
+**3. Deployment Steps**
 
 **Step 1: Initialize Node**
 
+Copy
+
 ```bash
-cnho_stables init your-node-name --chain-id cnho_stables-1 --home=. 
+cnho_stables init your-node-name --chain-id cnho_stables-1 --home=.
 ```
 
 **Step 2: Download Genesis File**
+
+Copy
 
 ```bash
 curl -L https://raw.githubusercontent.com/alashooinc/ChainCNHO/master/mainnet/genesis.json > ~/.cnho/config/genesis.json
@@ -49,6 +59,8 @@ curl -L https://raw.githubusercontent.com/alashooinc/ChainCNHO/master/mainnet/ge
 
 - Open `~/.cnho/config/config.toml`, find the `seeds` setting, and replace it with:
 
+Copy
+
 ```bash
 seeds = "c5afa68170530e128018e12cd463d15823e34ce9@seeds.cnho.io:26656"
 ```
@@ -57,50 +69,66 @@ seeds = "c5afa68170530e128018e12cd463d15823e34ce9@seeds.cnho.io:26656"
 
 - Open `~/.cnho/config/client.toml`, update:
 
-```
-chain-id = "cnho_stables-1" 
+Copy
+
+```bash
+chain-id = "cnho_stables-1"
 ```
 
 **Step 5: Enable API, RPC, and Swagger**
 
 - In `~/.cnho/config/app.toml`, set the following values to `true`:
 
+Copy
+
 ```bash
-api = true swagger = true enable = true  # under the RPC section 
+api = true swagger = true enable = true  # under the RPC section
 ```
 
 - Ensure the ports are correctly set (default: RPC `26657`, API `1317`).
 
 **Step 6: Start Node**
 
+Copy
+
 ```bash
-cnho_stables start --home=. 
+cnho_stables start --home=.
 ```
 
 **Step 7: Check Synchronization Status**
 
+Copy
+
 ```bash
-curl -s localhost:26657/status | jq .result.sync_info 
+curl -s localhost:26657/status | jq .result.sync_info
 ```
 
-### 4. Accessing API, RPC, and Swagger Services
+### [**​**](https://docs.cnho.io/essentials/NodeDeployment#4-accessing-api%2C-rpc%2C-and-swagger-services)
+
+**4. Accessing API, RPC, and Swagger Services**
 
 **1. Access RPC:**\
- Use `curl` or any HTTP client:
+Use `curl` or any HTTP client:
+
+Copy
 
 ```bash
-curl -s localhost:26657/status 
+curl -s localhost:26657/status
 ```
 
 **2. Access API:**\
- If API is enabled, access via browser or HTTP client (default port `1317`):
+If API is enabled, access via browser or HTTP client (default port `1317`):
+
+Copy
 
 ```bash
-curl -s localhost:1317 
+curl -s localhost:1317
 ```
 
 **3. Access Swagger UI:**\
- If Swagger is enabled, visit:
+If Swagger is enabled, visit:
+
+Copy
 
 ```bash
 http://localhost:1317
