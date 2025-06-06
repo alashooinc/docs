@@ -35,7 +35,8 @@
           {
             "group": "Trade with CNHO",
             "pages": [
-              "Trade/Market"
+              "Trade/Market",
+              "mBTC"
             ]
           },
           {
