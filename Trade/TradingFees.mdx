@@ -1,5 +1,59 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: "Trading Fee"
+description: "CNHO Trading Fee Guide."
 ---
 
+All trades conducted on [**trade.cnho.io**](http://trade.cnho.io) are subject to a transparent and unified fee structure. This guide outlines how trading fees are calculated and applied for **both buyers and sellers**.
+
+---
+
+### 📊 Fee Structure
+
+| Category        | Fee Rate                           | Fee Token | Minimum Fee |
+| :-------------- | :--------------------------------- | :-------- | :---------- |
+| **Trading Fee** | **0.01% (0.0001)** of trade amount | CNHO      | **30 CNHO** |
+
+- **Fees are charged on both sides** of the trade: **buyers and sellers**
+- Fees are **always deducted in CNHO**
+
+---
+
+### 📌 Important Rules
+
+1. **Minimum Fee**\
+   If 0.01% of your trade amount is **less than 30 CNHO**, you will still be charged **30 CNHO**.
+2. **Fee Deduction Logic**
+   - **Buy Orders**:\
+     CNHO fee is deducted **upfront**, and the **net amount** is used to execute the trade.
+   - **Sell Orders**:\
+     After the trade is executed, the **fee is deducted from the CNHO you receive**, and you get the **net amount**.
+3. **Insufficient CNHO Balance**
+   - If your CNHO balance is **not sufficient** to cover the fee, **you will not be able to place the order**.
+   - Make sure your account holds **at least 30 CNHO** before submitting a trade.
+
+---
+
+### 🧮 Fee Calculation Examples
+
+#### Example 1 – Buy Order
+
+- **Trade amount**: 100,000 CNHO equivalent
+- **Fee**: 0.01% = 10 CNHO → Below minimum
+- **Charged Fee**: 30 CNHO
+- **Result**: Order is placed using **net 99,970 CNHO**
+
+#### Example 2 – Sell Order
+
+- **Sell 1 ETH = 200,000 CNHO**
+- **Fee**: 0.01% = 20 CNHO → Below minimum
+- **Charged Fee**: 30 CNHO
+- **Result**: You receive **199,970 CNHO**
+
+---
+
+### ✅ Summary
+
+- CNHO is the **only fee token**
+- Fees are **automatic, non-refundable**, and **must be available in advance**
+- Ensure CNHO balance is adequate to avoid trade failure
+- Applies to all trading pairs on the platform

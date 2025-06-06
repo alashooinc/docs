@@ -36,7 +36,11 @@
             "group": "Trade with CNHO",
             "pages": [
               "Trade/Market",
-              "Trade/mBTC"
+              "Trade/mBTC",
+              "Trade/Deposit",
+              "Trade/WIthdrawal",
+              "Trade/Transfer",
+              "Trade/TradingFees"
             ]
           },
           {
