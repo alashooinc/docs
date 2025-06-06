@@ -44,6 +44,13 @@
             ]
           },
           {
+            "group": "CNHO Stables",
+            "pages": [
+              "CNHO-Stables/Chain",              
+              "CNHO-Stables/Token"
+            ]
+          },
+          {
             "group": "Becoming Validators",
             "pages": [
               "essentials/Benefits",
