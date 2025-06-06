@@ -33,6 +33,12 @@
             ]
           },
           {
+            "group": "Trade with CNHO",
+            "pages": [
+              "Trade/Market"
+            ]
+          },
+          {
             "group": "Becoming Validators",
             "pages": [
               "essentials/Benefits",
