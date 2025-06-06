@@ -1,5 +1,108 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: "Delegator Rewards"
+description: "How Delegator Rewards Are Calculated on CNHO Stables Chain？"
 ---
 
+On the CNHO Stables blockchain, delegators earn rewards by staking CNHO tokens to a validator. These rewards are automatically accumulated and can be claimed at any time.
+
+---
+
+## 🧭 Where Do Delegator Rewards Come From?
+
+Delegator rewards come from two primary sources:
+
+### Transaction Fees (in CNHO)
+
+Every time users interact with the CNHO Stables network — such as sending a transaction, interacting with a smart contract, or swapping tokens — they pay gas fees in CNHO. These fees are distributed to validators and their delegators.
+
+### OFO Governance Token Mining Rewards
+
+The CNHO Stables chain incentivizes participation by issuing OFO tokens, the governance token of OffshoreDAO. These tokens are distributed as staking incentives to validators and their delegators, similar to liquidity mining. The more you stake, the more OFO you earn — alongside CNHO.
+
+---
+
+🟢 Together, these two income streams (CNHO fees \+ OFO mining rewards) form the total reward pool shared between validators and their delegators.
+
+---
+
+## 🔢 Reward Calculation Formula
+
+Delegator Reward=Total Validator Reward×(Your Delegation÷Total Delegation)×(1−Validator Commission)
+
+---
+
+## 🧮 Example: CNHO Rewards
+
+| Item                                 | Value        |
+| :----------------------------------- | :----------- |
+| Validator’s total weekly CNHO reward | 1,000 CNHO   |
+| Total delegation to validator        | 100,000 CNHO |
+| Your delegation amount               | 5,000 CNHO   |
+| Validator commission rate            | 10%          |
+
+**Step 1: Your share of delegation**
+
+5,000÷​100,000=0.05
+
+**Step 2: Your share of total CNHO reward**
+
+1,000×0.05=50 CNHO
+
+**Step 3: Deduct commission**
+
+50×(1−0.10)=45 CNHO
+
+✅ **Final CNHO reward: 45 CNHO**
+
+---
+
+## 🧮 Example: OFO Rewards
+
+Assume the network produces 2 OFO tokens per block as staking rewards. These OFO tokens are split between the validator and all delegators based on the same mechanism:
+
+| Item                         | Value                              |
+| :--------------------------- | :--------------------------------- |
+| OFO per block                | 2 OFO                              |
+| Blocks per week (approx.)    | 100,800 (assuming 6 seconds/block) |
+| Total weekly OFO reward      | 2×100,800=201,600                  |
+| Validator’s total delegation | 100,000 CNHO                       |
+| Your delegation amount       | 5,000 CNHO                         |
+| Validator commission rate    | 10%                                |
+
+**Step 1: Your share of delegation**
+
+5,000÷100,000=0.05
+
+**Step 2: Your share of total OFO reward**
+
+201,600×0.05=10,080 OFO
+
+**Step 3: Deduct commission**
+
+10,080×(1−0.10)=9,072 OFO
+
+✅ **Final OFO reward: 9,072 OFO**
+
+---
+
+## 🔁 Reward Distribution and Claiming
+
+- Rewards accumulate every block continuously.
+- You can **claim your CNHO and OFO rewards anytime** using wallets like **Keplr** or **Leap**.
+- To maximize your long-term yield, you may **re-delegate (compound) your rewards** by staking the claimed tokens again.
+
+---
+
+## 📈 Example APY
+
+If the APY (including CNHO \+ OFO rewards) is 12%, and you stake 10,000 CNHO:
+
+10,000×12%=1,200 CNHO per year (before validator commission)
+
+---
+
+## ⚠️ Notes on Risk and Performance
+
+- Your tokens remain yours during delegation, but are locked and unspendable while staked.
+- Validators who underperform or are slashed may reduce your rewards.
+- Diversifying your delegation across multiple reliable validators is recommended.

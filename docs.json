@@ -53,6 +53,14 @@
               "essentials/NodeDeployment",
               "essentials/CreateYourValidator"
             ]
+           },
+          {
+            "group": "Stake to Earn",
+            "pages": [
+              "Stake2Earn/Delegator",
+              "Stake2Earn/Rewards",
+              "Stake2Earn/Choose"
+            ]
           }
         ]
       }
