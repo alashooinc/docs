@@ -24,6 +24,15 @@
             ]
           },
           {
+            "group": "CNHO⇄CNH",
+            "pages": [
+              "CNHO-CNH/Acquire",
+              "CNHO-CNH/Redeem",
+              "CNHO-CNH/Deposit",
+              "CNHO-CNH/Withdrawal"
+            ]
+          },
+          {
             "group": "Becoming Validators",
             "pages": [
               "essentials/Benefits",
@@ -32,15 +41,6 @@
               "essentials/MaintenanceGuidelines",
               "essentials/NodeDeployment",
               "essentials/CreateYourValidator"
-            ]
-          },
-          {
-            "group": "CNHO⇄CNH",
-            "pages": [
-              "CNHO-CNH/Acquire",
-              "CNHO-CNH/Redeem",
-              "CNHO-CNH/Deposit",
-              "CNHO-CNH/Withdrawal"
             ]
           }
         ]
