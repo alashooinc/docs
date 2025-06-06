@@ -17,7 +17,7 @@
             "group": "User Guides",
             "pages": [
               "index",
-              "accounts",
+              "quickstart",
               "development"
             ]
           },
