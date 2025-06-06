@@ -38,7 +38,7 @@
               "Trade/Market",
               "Trade/mBTC",
               "Trade/Deposit",
-              "Trade/WIthdrawal",
+              "Trade/Withdrawal",
               "Trade/Transfer",
               "Trade/TradingFees"
             ]
