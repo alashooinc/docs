@@ -1,111 +1,87 @@
 ---
-title: "Development"
-description: "CNHO-A Decentralized Offshore China Yuan Stablecoin"
+title: "KYC & AML"
+description: "To access CNHO’s fiat and exchange services, users must complete identity verification (KYC). This guide walks you through the full process—from email registration to submitting your ID and proof of address."
 ---
 
-<Info>
-  **Prerequisite**: Please install Node.js (version 19 or higher) before proceeding. \\
+### **Step 1: Create Your CNHO Account**
 
-  Please upgrade to `docs.json` before proceeding and delete the legacy `mint.json` file.
-</Info>
+1. **Go to Registration Page**\
+   Visit the CNHO beta platform:\
+   👉 https://beta.cnho.io/signup
+2. **Enter Your Email and Password**
+   - Use a valid personal email address.
+   - Set a strong password (minimum 8 characters, including upper/lowercase letters, numbers, and symbols).
+3. **Confirm Your Email**
+   - A verification link will be sent to your email.
+   - Open the email and click the confirmation link to activate your account.
 
-Follow these steps to install and run Mintlify on your operating system:
+---
 
-**Step 1**: Install Mintlify:
+### **Step 2: Log In and Start KYC**
 
-<CodeGroup>
+1. **Go to the Login Page**\
+   👉 https://beta.cnho.io/login
+2. **Enter Your Credentials**
+   - Email
+   - Password
+3. **Navigate to the KYC Section**
+   - After logging in, go to your **Account Settings** or click on **"Verify Identity"** in the dashboard.
+   - Select your account type: **Fiat Account** or **Exchange Account** (both require KYC).
 
-```bash npm
-npm i -g mintlify
-```
+---
 
+### **Step 3: Submit Identity Document**
 
-```bash yarn
-yarn global add mintlify
-```
+You can verify your identity with **any one** of the following official documents:
 
-</CodeGroup>
+- **Passport**
+- **Driver’s License**
+- **National ID Card**
 
-**Step 2**: Navigate to the docs directory (where the `docs.json` file is located) and execute the following command:
+> 📸 Upload a **clear photo or scan** of the front side. If your ID has two sides, upload both.
 
-```bash
-mintlify dev
-```
+- Ensure:
+  - All text is legible.
+  - No glare or blurriness.
+  - Document is valid and not expired.
 
-A local preview of your documentation will be available at `http://localhost:3000`.
+---
 
-### Custom Ports
+### **Step 4: Submit Proof of Address**
 
-By default, Mintlify uses port 3000. You can customize the port Mintlify runs on by using the `--port` flag. To run Mintlify on port 3333, for instance, use this command:
+You must also upload one **proof of address document** issued in the last 3 months. Accepted documents include:
 
-```bash
-mintlify dev --port 3333
-```
+- Utility bill (electricity, gas, water)
+- Bank or credit card statement
+- Internet or mobile phone bill
+- Official government-issued document with address
 
-If you attempt to run Mintlify on a port that's already in use, it will use the next available port:
+> 📎 Must show:
+>
+> - Your **full name** (matching your ID)
+> - **Residential address**
+> - **Issue date** (within the last 3 months)
 
-```md
-Port 3000 is already in use. Trying 3001 instead.
-```
+---
 
-## Mintlify Versions
+### **Step 5: Review and Submit**
 
-Please note that each CLI release is associated with a specific version of Mintlify. If your local website doesn't align with the production version, please update the CLI:
+- Double-check all uploaded documents.
+- Click **"Submit for Review"**.
+- You will receive an email confirmation once your documents are under review.
 
-<CodeGroup>
+---
 
-```bash npm
-npm i -g mintlify@latest
-```
+### **Step 6: Wait for Approval**
 
+- KYC review usually takes **1–2 business days**.
+- You will be notified via email once your account is verified.
+- Upon approval, you will be able to deposit/withdraw fiat, subscribe/redeem CNHO, and access the trading platform at https://trade.cnho.io.
 
-```bash yarn
-yarn global upgrade mintlify
-```
+---
 
-</CodeGroup>
+### ⚠️ Important Notes
 
-## Validating Links
-
-The CLI can assist with validating reference links made in your documentation. To identify any broken links, use the following command:
-
-```bash
-mintlify broken-links
-```
-
-## Deployment
-
-<Tip>
-  Unlimited editors available under the [Pro
-  Plan](https://mintlify.com/pricing) and above.
-</Tip>
-
-If the deployment is successful, you should see the following:
-
-<Frame>
-  <img
-    src="/images/checks-passed.png"
-    style={{ borderRadius:"0.5rem" }}
-  />
-</Frame>
-
-## Code Formatting
-
-We suggest using extensions on your IDE to recognize and format MDX. If you're a VSCode user, consider the [MDX VSCode extension](https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-mdx) for syntax highlighting, and [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) for code formatting.
-
-## Troubleshooting
-
-<AccordionGroup>
-  <Accordion title='Error: Could not load the "sharp" module using the darwin-arm64 runtime'>
-    This may be due to an outdated version of node. Try the following:
-
-    1. Remove the currently-installed version of mintlify: `npm remove -g mintlify`
-    2. Upgrade to Node v19 or higher.
-    3. Reinstall mintlify: `npm install -g mintlify`
-  </Accordion>
-  <Accordion title="Issue: Encountering an unknown error">
-    Solution: Go to the root of your device and delete the ~/.mintlify folder. Afterwards, run `mintlify dev` again.
-  </Accordion>
-</AccordionGroup>
-
-Curious about what changed in the CLI version? [Check out the CLI changelog.](https://www.npmjs.com/package/mintlify?activeTab=versions)
+- **Do NOT use a VPN** when uploading documents.
+- **CNHO does not support** users who are residents of Mainland China or U.S. tax residents.
+- All personal data is handled in accordance with CNHO’s Privacy Policy and relevant regulatory standards.
