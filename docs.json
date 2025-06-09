@@ -47,7 +47,11 @@
             "group": "CNHO Chain",
             "pages": [
               "CNHO-Stables/Chain",              
-              "CNHO-Stables/Token",              
+              "CNHO-Stables/Token",            
+              "CNHO-Stables/Keplr",       
+              "CNHO-Stables/Leap",
+              "CNHO-Stables/Cosmostation",
+              "CNHO-Stables/Phantom",
               "CNHO-Stables/Metamask"
             ]
           },
