@@ -47,7 +47,8 @@
             "group": "CNHO Chain",
             "pages": [
               "CNHO-Stables/Chain",              
-              "CNHO-Stables/Token"
+              "CNHO-Stables/Token",              
+              "CNHO-Stables/Metamask"
             ]
           },
           {
