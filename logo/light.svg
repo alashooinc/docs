@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" style="enable-background:new 0 0 177 24" version="1.1" viewBox="0 0 155 26" width="177px" height="24px">
+  <path d="M 15.012 7.164 C 17.672 7.164 19.914 8.947 20.61 11.37 C 20.67 11.576 20.705 11.788 20.745 12.005 L 28 12.005 L 28 11.37 C 27.058 10.674 26.393 10.181 25.451 9.486 C 23.99 5.124 19.869 1.976 15.012 1.976 C 8.932 1.976 4 6.902 4 12.988 C 4 19.074 8.927 24 15.012 24 C 19.869 24 23.989 20.851 25.451 16.489 C 26.393 15.793 27.058 15.3 28 14.605 L 28 13.97 L 20.741 13.97 C 20.705 14.187 20.665 14.398 20.605 14.605 C 19.909 17.033 17.673 18.811 15.013 18.811 C 11.805 18.811 9.189 16.201 9.189 12.987 C 9.189 9.772 11.804 7.164 15.012 7.164 Z" style="fill:#0b825d"/>
+  <g transform="matrix(7.375, 0, 0, 7.375, -790.210815, -18.346605)">
+    <svg x="0" y="0" width="24" height="24"/>
+  </g>
+  <text x="4.66" y="110.174" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#000" style="white-space: pre; stroke-width: 7.375; font-size: 21.5px;" transform="matrix(1, 0, 0, 1, 1.340001, -111.124214)"><tspan x="4.659999847412109" dy="1em">​</tspan>    CNHO<tspan x="4.659999847412109" dy="1em">​</tspan></text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 28px;" x="301.827" y="136.599"> </text>
+  <text style="fill: rgb(11, 130, 93); font-weight: 700; white-space: pre; font-size: 20.3px;" y="20.124" x="97.183">Docs
+</text>
+</svg>
