@@ -100,7 +100,7 @@
     }
   },
   "logo": {
-    "light": "/logo/cnho_stables_docs_logo.svg",
+    "light": "/logo/light.svg",
     "dark": "/logo/dark.jpg"
   },
   "navbar": {
