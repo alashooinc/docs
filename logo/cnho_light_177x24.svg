@@ -1,0 +1,6 @@
+<svg width="177" height="24" viewBox="0 0 177 24" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="10" fill="#0D7C5A"/>
+  <rect x="12" y="10" width="9" height="4" fill="#FFFFFF"/>
+  <polygon points="21,6 24,12 21,18" fill="#0D7C5A"/>
+  <text x="32" y="17" font-family="Arial, sans-serif" font-size="14" fill="#000000">Docs</text>
+</svg>
