@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" style="enable-background:new 0 0 177 24" version="1.1" viewBox="0 0 177 24" width="177px" height="24px">
+  <path d="M 12.012 6.164 C 14.672 6.164 16.914 7.947 17.61 10.37 C 17.67 10.576 17.705 10.788 17.745 11.005 L 25 11.005 L 25 10.37 C 24.058 9.674 23.393 9.181 22.451 8.486 C 20.99 4.124 16.869 0.976 12.012 0.976 C 5.932 0.976 1 5.902 1 11.988 C 1 18.074 5.927 23 12.012 23 C 16.869 23 20.989 19.851 22.451 15.489 C 23.393 14.793 24.058 14.3 25 13.605 L 25 12.97 L 17.741 12.97 C 17.705 13.187 17.665 13.398 17.605 13.605 C 16.909 16.033 14.673 17.811 12.013 17.811 C 8.805 17.811 6.189 15.201 6.189 11.987 C 6.189 8.772 8.804 6.164 12.012 6.164 Z" style="fill:#0b825d"/>
+  <g transform="matrix(7.375, 0, 0, 7.375, -790.210815, -18.346605)">
+    <svg x="0" y="0" width="24" height="24"/>
+  </g>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 28px;" x="301.827" y="136.599"> </text>
+  <text style="fill: rgba(9, 10, 10, 0.996); font-size: 20.3px; font-style: italic; font-weight: 700; white-space: pre;" transform="matrix(1, 0, 0, 1, -63, -1)"><tspan x="90.183" y="20.124">Documentation</tspan><tspan x="90.183" dy="1em">​</tspan></text>
+</svg>
